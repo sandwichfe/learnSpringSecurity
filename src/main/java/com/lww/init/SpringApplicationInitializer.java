@@ -2,6 +2,7 @@ package com.lww.init;
 
 import com.lww.config.ApplicationConfig;
 import com.lww.config.WebConfig;
+import com.lww.config.WebSecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -18,7 +19,7 @@ public class SpringApplicationInitializer  extends AbstractAnnotationConfigDispa
      */
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{ApplicationConfig.class};
+        return new Class[]{ApplicationConfig.class, WebSecurityConfig.class};
     }
 
     /**
