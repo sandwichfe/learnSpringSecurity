@@ -44,14 +44,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-
-
     /**
      * 配置安全拦截机制 （那些资源路径时需要做安全拦截的）   ！important
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                //r1 资源要拥有p1 权限才能访问
+                .antMatchers("/r/r1").hasAuthority("p1")
+                //r1 资源要拥有p1 权限才能访问
+                .antMatchers("/r/r2").hasAuthority("p2")
                 //以 r/** 的请求都必须经过认证通过
                 .antMatchers("/r/**").authenticated()
                 //此外 其他的请求可以随便访问
@@ -61,7 +63,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 //登录成功后跳转的  url
                 .successForwardUrl("/login-success");
-
-
     }
 }

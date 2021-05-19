@@ -14,8 +14,7 @@ import org.springframework.stereotype.Controller;
 
 
 @Configuration
-@ComponentScan(basePackages = "com.lww",
-        excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)})
+@ComponentScan(basePackages = "com.lww")
 public class ApplicationConfig {
 
 

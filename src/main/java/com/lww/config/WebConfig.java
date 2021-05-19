@@ -18,6 +18,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @Configuration
 @EnableWebMvc
+/**这个 ComponentScan注解不能删  我也不知道是什么情况*/
 @ComponentScan(basePackages = "com.lww",
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)})
 public class WebConfig implements WebMvcConfigurer {
@@ -30,9 +31,9 @@ public class WebConfig implements WebMvcConfigurer {
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         //视图前缀
-        viewResolver.setPrefix("");
+        viewResolver.setPrefix("/WEB-INF/");
         //视图后缀
-        viewResolver.setSuffix("");
+        viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
 
